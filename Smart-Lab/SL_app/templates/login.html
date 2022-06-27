@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="white-panel">
+<div class="login-show">
+<div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+<h3>Sign In here!!</h3>
+<br>
+{% for messsage in messages %}
+    <h6 class="display-5 py-2 text-truncate" style="color: darkred;">{{messsage}}</h6>
+{%   endfor %}
+<form action="{% url 'login' %}" method="post">
+  {% csrf_token %}
+  {{ form|crispy }}
+  Username:<input type="text" name="Unm" ><br><br>
+  Password:<input type="password" name="pwd"><br><br>
+  
+   
+  <label for="Roles">Choose a Role:</label>
+  <select name="Roles" id="Roles">
+    <option value="admin">Admin</option>
+    <option value="user1">User1</option>
+    <option value="user2">User2</option>
+  </select>
+  <br><br>
+
+  <input type="submit" value="Login">
+
+
+  <a href="">Forget password</a>
+  </form>
+
+</div>
+</div>
+</div>
+{% endblock %}
+
+
+
+
+
+

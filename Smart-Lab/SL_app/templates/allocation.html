@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container h-100">
+
+  <form class="mx-1 mx-md-4" action="{% url 'tobeadded'%}" method="post">
+    {% csrf_token %}
+          Start Date <input type="date" name="sDate" ><br><br>
+          End Date <input type="date" name="eDate" ><br><br>
+
+    <div class="d-flex flex-row align-items-center mb-4">
+      <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+      <div class="form-outline flex-fill mb-0">
+        <input type="text" id="form3Example1c" class="form-control" />
+        <label class="form-label" for="form3Example4c">ProjectID</label>
+      </div>
+    </div>
+
+      <input type="submit" value="search">
+
+  </form>
+
+</div>
+
+{% endblock %}

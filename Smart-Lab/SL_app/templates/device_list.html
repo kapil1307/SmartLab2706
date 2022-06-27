@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-auto">
+    <h4 style="color: brown;"> Allocation Request </h4>
+    <br>
+    <table class="table table-striped w-auto" cellspacing="0" width="100%">
+        <tbody>
+        <tr>
+            <th>ORG_CODE</th>
+            <th>DOMAIN_CODE</th>
+            <th>SUBDOMAIN_CODE</th>
+            <th>SERIAL_ID</th>
+            <th>STATUS</th>
+            <th>ISACTIVE</th>
+            <th>SPECIFICATION</th>
+            <th>LAB_ID_id</th>
+            <th>PRODUCT_ID_id</th>
+        </tr>
+        {% for device in device_obj %}
+        <tr>
+            <td>{{device.ORG_CODE}}</td>
+            <td>{{device.DOMAIN_CODE}}</td>
+            <td>{{device.SUBDOMAIN_CODE}}</td>
+            <td>{{device.SERIAL_ID}}</td>
+            <td>{{device.STATUS}}</td>
+            <td>{{device.ISACTIVE}}</td>
+            <td>{{device.SPECIFICATION}}</td>
+            <td>{{device.LAB_ID_id}}</td>
+            <td>{{device.PRODUCT_ID_id}}</td>
+            
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+</div>
+</div>
+{% endblock %}

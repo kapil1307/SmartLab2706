@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-50" src="{% static 'images/DUT.jpg' %}" width="10%" height="50%" alt="First slide">
+      </div>
+</div>
+<br>
+<br>
+<div class="row justify-content-center">
+    <div class="col-auto">
+    <h4 style="color: brown;">DUT Screen</h4>
+
+    <br>
+    <br>
+    <table class="table table-striped w-auto">
+        <tbody>
+        <tr>
+            <th>ID</th>
+            <th>DUT_ID</th>
+            <th>SUT_NAME</th>
+            <th>ITP_C_STATUS</th>
+            <th>DEBUG_SERVER_IP</th>
+            <th>CCA_C_STATUS</th>
+            <th>TEST_SERVER_IP</th>
+            <th>UART_C_STATUS</th>
+            <th>TEST_PC_IP</th>                        
+        </tr>
+       {% for labs in lab_obj %}
+
+       
+        <tr>
+            <td><a href="/allocation/{{labs.ID}}"><button style="color: black;">{{labs.ID}}</button></a></td>
+            <td>{{labs.DUT_ID}}</td>
+            <td>{{labs.SUT_NAME}}</td>
+            <td>{{labs.ITP_C_STATUS}}</td>
+            <td>{{labs.DEBUG_SERVER_IP}}</td>
+            <td>{{labs.CCA_C_STATUS}}</td>
+            <td>{{labs.TEST_SERVER_IP}}</td>
+            <td>{{labs.UART_C_STATUS}}</td>
+            <td>{{labs.TEST_PC_IP}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+</div>
+</div>
+{% endblock %}
